@@ -70,8 +70,11 @@ const renderApp = async ({
   readonly appOptions: AppOptions;
   readonly queryDeduplicator: QueryDeduplicator;
 }) => {
+  const cache = new InMemoryCache();
+  cache.writeData({ data: { timeAgo: false } });
   const apollo = new ApolloClient({
-    cache: new InMemoryCache(),
+    cache,
+    resolvers: {},
     link: new SchemaLink(queryDeduplicator),
     ssrMode: true,
     queryDeduplication: false,

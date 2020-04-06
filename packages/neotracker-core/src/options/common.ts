@@ -133,6 +133,7 @@ export const common = ({
       disableWalletModify: false,
       // 3 minutes
       confirmLimitMS: 3 * 60 * 1000,
+      debug: true,
     },
     serveNext: process.env.NEOTRACKER_NEXT === 'true',
   },
